@@ -15,11 +15,14 @@ enableResponsiveMenu = () => {
     unsetDropdownPosition()
     menu = document.getElementById('category-list')
     nav = document.getElementById('nav-menu')
-    nav.innerHTML += menu.innerHTML
-    menu.style.display = "none"
+    if (!$('#nav-menu ul#Categories')[0]) {
+        nav.innerHTML += menu.innerHTML
+        menu.style.display = "none"
+    }
 }
 disableResponsiveMenu = () => {
     $('#nav-menu ul#Categories').remove()
+    $('.navbar-toggler').trigger('click')
     menu = document.getElementById('category-list')
     menu.style.display = "initial"
     setDropdownPosition()

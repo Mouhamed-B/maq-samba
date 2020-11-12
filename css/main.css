@@ -6,8 +6,9 @@
 nav{
 	font-size: larger;
 	z-index: 51;
-	position: fixed;
-
+}
+nav div.container-lg{
+	position: static;
 }
 .navbar-menu{
 	padding-bottom: 15%;
