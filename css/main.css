@@ -6,6 +6,7 @@
 nav{
 	font-size: larger;
 	z-index: 51;
+	position: fixed;
 
 }
 .navbar-menu{

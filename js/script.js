@@ -1,10 +1,18 @@
+/*
+Fonctions pour le responsive
+*/
+
 setDropdownPosition = () => {
     document.getElementById('u-info').style.right = ($(window).width() - document.getElementById('connect-btn').offsetLeft - $('#connect-btn').width()*1.3)+'px'
+}
+unsetDropdownPosition = () => {
+    document.getElementById('u-info').style.right = 'initial'
 }
 setNavMenuPosition = () => {
     document.getElementById("nav-menu").style.top = document.getElementById('navbar').offsetHeight+"px"
 }
 enableResponsiveMenu = () => {
+    unsetDropdownPosition()
     menu = document.getElementById('category-list')
     nav = document.getElementById('nav-menu')
     nav.innerHTML += menu.innerHTML
@@ -14,18 +22,24 @@ disableResponsiveMenu = () => {
     $('#nav-menu ul#Categories').remove()
     menu = document.getElementById('category-list')
     menu.style.display = "initial"
+    setDropdownPosition()
 }
+
+/*
+Au chargement du document
+*/
+
 $(function () {
+    setNavMenuPosition()
+
     if ($(window).width()<769) {
         enableResponsiveMenu()
     }
-    setNavMenuPosition()
     $(window).on('resize', () => {
         if ($(window).width()<769) {
             enableResponsiveMenu()
         }
         else{
-            setDropdownPosition()
             disableResponsiveMenu()
         }
     })
